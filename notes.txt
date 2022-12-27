@@ -6,3 +6,10 @@ npx hardhat
 npm install --save-dev @nomiclabs/hardhat-waffle ethereum-waffle chai @nomiclabs/hardhat-ethers ethers
 npx hardhat compile
 npx hardhat test
+
+npx hardhat run scripts/run.js
+
+No arquivo run.js, comando deployed() o Hardhat criará uma rede Ethereum local, mas apenas para este contrato. Então, depois que o script for concluído, ele destruirá essa rede local. Então, toda vez que você executar o contrato, será uma nova blockchain.
+
+O Hardhat Runtime Environment (hre) é um objeto que contém todas as funcionalidades que a Hardhat expõe ao executar uma tarefa. Na realidade, Hardhat é o HRE. Toda vez que você executa um comando "npx" hardhat, você obtém este objeto hre construído em tempo real usando o hardhat.config.js especificado. Nunca precisará fazer algum tipo de importação como "const hre = require("hardhat")".
+
